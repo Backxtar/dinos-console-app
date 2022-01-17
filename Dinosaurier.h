@@ -17,6 +17,7 @@ public:
 
     void growingUp();
     bool die() const;
+    virtual void breed() = 0;
 
 protected:
     int weight;
