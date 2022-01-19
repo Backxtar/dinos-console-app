@@ -12,8 +12,15 @@ class Herbivoren : public Dinosaurier  {
 public:
     const std::string &getArt() const { return art; }
 
+    bool hide();
+
 private:
+
+    bool isHidden;
+
     std::string art = "Herbivoren";
+
+    int calcHideChance();
 
 };
 
