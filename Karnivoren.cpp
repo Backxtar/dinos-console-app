@@ -4,13 +4,32 @@
 
 #include "Karnivoren.h"
 
-
-
-bool Karnivoren::hunt()
+bool Karnivoren::hunt(int kar, int herb)
 {
-    for(int i = 0; i <= karVec.size(); i++){
-        for (int j = 0; j <= herVec.size(); ++j) {
-            
-        }
-    }
+
+   // if ()
+
+
+    return false;
 }
+
+void Karnivoren::growingUp() {
+    Dinosaurier::growingUp();
+}
+
+bool Karnivoren::breed() {
+    return Dinosaurier::breed();
+}
+
+int Karnivoren::getWeight() {
+    return Dinosaurier::getWeight();
+}
+
+int Karnivoren::getMaxWeight() {
+    return Dinosaurier::getMaxWeight();
+}
+
+bool Karnivoren::die() {
+    return Dinosaurier::die();
+}
+

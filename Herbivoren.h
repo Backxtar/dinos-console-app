@@ -6,13 +6,20 @@
 #define DINOS_HERBIVOREN_H
 #include "Dinosaurier.h"
 
-
 class Herbivoren : public Dinosaurier  {
 
 public:
+    Herbivoren() = default;
     const std::string &getArt() const { return art; }
 
     bool hide();
+
+    //Dinosaur Functions
+    void growingUp();
+    bool breed();
+    int getWeight();
+    int getMaxWeight();
+    bool die();
 
 private:
 

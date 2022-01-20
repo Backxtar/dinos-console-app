@@ -6,17 +6,14 @@
 #define DINOS_DINOSAURIER_H
 #include <iostream>
 #include "vector"
-#include "Herbivoren.h"
-#include "Karnivoren.h"
+
 
 class Dinosaurier {
 
 public:
-
-    static vector<Herbivoren> herVec;
-    static vector<Karnivoren> karVec;
-
     Dinosaurier(int weight_, std::string race_);
+
+    Dinosaurier();
 
     int getWeight() const { return weight; };
     int getMaxWeight() const { return maxWeight; }
@@ -26,7 +23,7 @@ public:
     void growingUp();
     bool die() const;
 
-    void breed() ;
+    bool breed() ;
 
 
 protected:
@@ -37,7 +34,7 @@ protected:
 private:
     int calcMaxWeight() const;
     int calcGrowthRate() const;
-    int calcBreedCHance() const;
+    int calcBreedChance() const;
 };
 
 
