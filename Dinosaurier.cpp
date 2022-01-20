@@ -34,3 +34,19 @@ int Dinosaurier::calcGrowthRate() const {
     else if (race == "RAPTOR") return 30;
     else return 40;
 }
+
+void Dinosaurier::breed() {
+    bool vicBreed = false;
+
+    if (rand() % 100 + 1 <= (calcBreedCHance() + 1)){
+        vicBreed = true;
+    }
+
+}
+
+int Dinosaurier::calcBreedCHance() const {
+    if (race == "T_REX") return 8;
+    else if (race == "RAPTOR") return 12;
+    else if (race == "BRACHIOSAURUS") return 20;
+    else return 85;
+}

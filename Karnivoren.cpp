@@ -8,8 +8,8 @@
 
 bool Karnivoren::hunt()
 {
-    for(int i = 0; i < karArray; i++){
-        for (int j = 0; j < herbArray; ++j) {
+    for(int i = 0; i <= karVec.size(); i++){
+        for (int j = 0; j <= herVec.size(); ++j) {
             
         }
     }
