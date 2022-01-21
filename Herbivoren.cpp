@@ -4,44 +4,28 @@
 
 #include "Herbivoren.h"
 
-bool Herbivoren::hide()
+bool Herbivoren::hide() const
 {
-    if (race == "BRACHIOSAURUS"){
+    bool hidden;
+    if (race == "BRACHIOSAURUS" || race == "PARASAUROLOPHUS") hidden = isHidden();
+    else hidden = false;
 
-        return (rand() % 100 + 1) <= (calcHideChance() + 1);
-
-    } else if (race == "PARASAUROLOPHUS"){
-
-        return (rand() % 100 + 1) <= (calcHideChance() + 1);
-
-    }
-    return false;
+    if (hidden) std::cout << "(" << getArt() << ") -> " << getRace() << " hat sich erfolgreich versteck!" << std::endl;
+    return hidden;
 }
 
-int Herbivoren::calcHideChance() {
-
+int Herbivoren::calcHideChance() const {
     if (race == "BRACHIOSAURUS") return 50;
     else if (race == "PARASAUROLOPHUS") return 75;
-
-    return 0;
-}
-
-void Herbivoren::growingUp() {
-   return Dinosaurier::growingUp();
+    else return 0;
 }
 
 bool Herbivoren::breed() {
-   return Dinosaurier::breed();
+    bool breed = rand() % 100 + 1 <= (calcBreedChance() + 1);
+    if (breed) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " wurde geboren!" << std::endl;
+    return breed;
 }
 
-int Herbivoren::getWeight() {
-   return Dinosaurier::getWeight();
-}
-
-int Herbivoren::getMaxWeight() {
-   return Dinosaurier::getMaxWeight();
-}
-
-bool Herbivoren::die() {
-   return Dinosaurier::die();
+bool Herbivoren::isHidden() const {
+    return (rand() % 100 + 1) <= (calcHideChance() + 1);
 }

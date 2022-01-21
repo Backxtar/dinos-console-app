@@ -3,13 +3,10 @@
 //
 
 #include "Dinosaurier.h"
-#include <utility>
 
 
-Dinosaurier::Dinosaurier(int weight_, std::string race_) {
-    weight = weight_;
-    race = std::move(race_);
-    maxWeight = calcMaxWeight();
+Dinosaurier::Dinosaurier(const int &weight_, const std::string& race_) {
+
 }
 
 void Dinosaurier::growingUp() {
@@ -18,7 +15,7 @@ void Dinosaurier::growingUp() {
     weight = newWeight;
 }
 
-bool Dinosaurier::die() const {
+bool Dinosaurier::die() {
     return (rand() % 100 + 1) <= (calcGrowthRate() + 1);
 }
 
@@ -35,21 +32,9 @@ int Dinosaurier::calcGrowthRate() const {
     else return 40;
 }
 
-bool Dinosaurier::breed() {
-    bool vicBreed = false;
-
-    if (rand() % 100 + 1 <= (calcBreedChance() + 1)){
-        vicBreed = true;
-    }
-
-    return vicBreed;
-}
-
 int Dinosaurier::calcBreedChance() const {
     if (race == "T_REX") return 8;
     else if (race == "RAPTOR") return 12;
     else if (race == "BRACHIOSAURUS") return 20;
     else return 85;
 }
-
-Dinosaurier::Dinosaurier() {}

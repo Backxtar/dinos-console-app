@@ -11,30 +11,26 @@
 class Dinosaurier {
 
 public:
-    Dinosaurier(int weight_, std::string race_);
+    Dinosaurier(const int &weight_, const std::string& race_);
 
-    Dinosaurier();
-
-    int getWeight() const { return weight; };
-    int getMaxWeight() const { return maxWeight; }
-
+    virtual int getWeight() { return weight; };
+    virtual int getMaxWeight() { return maxWeight; }
     const std::string &getRace() const { return race; }
-
-    void growingUp();
-    bool die() const;
-
-    bool breed() ;
+    virtual void growingUp();
+    virtual bool die();
+    virtual bool breed() = 0;
 
 
 protected:
-    int weight;
-    int maxWeight;
+    int weight{};
+    int maxWeight{};
     std::string race;
 
-private:
     int calcMaxWeight() const;
-    int calcGrowthRate() const;
     int calcBreedChance() const;
+
+private:
+    int calcGrowthRate() const;
 };
 
 

@@ -4,32 +4,20 @@
 
 #include "Karnivoren.h"
 
-bool Karnivoren::hunt(int kar, int herb)
+bool Karnivoren::hunt(int karWeight, int herWeight) const
 {
+    bool hunted;
 
-   // if ()
+    if (karWeight > herWeight) hunted = true;
+    else hunted = false;
 
-
-    return false;
-}
-
-void Karnivoren::growingUp() {
-    Dinosaurier::growingUp();
+    if (hunted) std::cout << "(" << getArt() << ") -> " << getRace() << " hat erfolgreich gejagt!" << std::endl;
+    return hunted;
 }
 
 bool Karnivoren::breed() {
-    return Dinosaurier::breed();
-}
-
-int Karnivoren::getWeight() {
-    return Dinosaurier::getWeight();
-}
-
-int Karnivoren::getMaxWeight() {
-    return Dinosaurier::getMaxWeight();
-}
-
-bool Karnivoren::die() {
-    return Dinosaurier::die();
+    bool breed = rand() % 100 + 1 <= (calcBreedChance() + 1);
+    if (breed) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " wurde geboren!" << std::endl;
+    return breed;
 }
 

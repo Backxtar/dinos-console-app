@@ -4,31 +4,29 @@
 
 #ifndef DINOS_HERBIVOREN_H
 #define DINOS_HERBIVOREN_H
+#include <utility>
+
 #include "Dinosaurier.h"
 
 class Herbivoren : public Dinosaurier  {
 
 public:
-    Herbivoren() = default;
-    const std::string &getArt() const { return art; }
+    Herbivoren(int weight_, std::string race_) : Dinosaurier(weight_, race_) {
+        weight = weight_;
+        race = std::move(race_);
+        maxWeight = calcMaxWeight();
+    }
 
-    bool hide();
+    const std::string &getArt() const { return art; }
+    bool hide() const;
 
     //Dinosaur Functions
-    void growingUp();
-    bool breed();
-    int getWeight();
-    int getMaxWeight();
-    bool die();
+    bool breed() override;
 
 private:
-
-    bool isHidden;
-
-    std::string art = "Herbivoren";
-
-    int calcHideChance();
-
+    const std::string art = "Herbivoren";
+    int calcHideChance() const;
+    bool isHidden() const;
 };
 
 

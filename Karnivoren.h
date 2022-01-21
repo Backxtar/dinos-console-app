@@ -9,28 +9,26 @@
 class Karnivoren : public Dinosaurier {
 
 public:
-    Karnivoren() = default;
+    Karnivoren(int weight_, std::string race_) : Dinosaurier(weight_, race_) {
+        weight = weight_;
+        race = std::move(race_);
+        maxWeight = calcMaxWeight();
+    }
     
     const std::string &getArt() const { return art; }
-
-    bool hunt(int kar, int herb);
+    bool hunt(int karWeight, int herWeight) const;
 
     //Getter/Setter
-    int getStomachLevel() const {return stomachLevel;}
-    int setStomachLevel(int stomachLevel1) {this -> stomachLevel = stomachLevel1;}
-    int reduceStomachLevel(int reduce) {this -> stomachLevel = stomachLevel - reduce;}
+    int getStomachLevel() const { return stomachLevel; }
+    int setStomachLevel(int stomachLevel1) { stomachLevel = stomachLevel1; }
+    int reduceStomachLevel(int reduce) { stomachLevel = stomachLevel - reduce; }
 
     //Dinosaurier Functions
-    void growingUp();
-    bool breed();
-    int getWeight();
-    int getMaxWeight();
-    bool die();
+    bool breed() override;
 
 private:
-
     int stomachLevel = 2;
-    std::string art = "Karnivoren";
+    const std::string art = "Karnivoren";
 };
 
 
