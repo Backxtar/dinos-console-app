@@ -20,8 +20,8 @@ public:
 
     //Getter/Setter
     int getStomachLevel() const { return stomachLevel; }
-    int setStomachLevel(int stomachLevel1) { stomachLevel = stomachLevel1; }
-    int reduceStomachLevel(int reduce) { stomachLevel = stomachLevel - reduce; }
+    void setStomachLevel(int stomachLevel1) { stomachLevel = stomachLevel1; }
+    void reduceStomachLevel(int reduce) { stomachLevel = stomachLevel - reduce; }
 
     //Dinosaurier Functions
     bool breed() override;

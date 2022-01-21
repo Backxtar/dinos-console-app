@@ -19,7 +19,7 @@ int main()
 
     while (true)
     {
-        std::cout << "Bitte geben sie die Anzahl an Monaten an die Simuliert werden sollen : ";
+        std::cout << "Bitte geben sie die Anzahl an Monaten an, die simuliert werden sollen: ";
         std::cin >> timePasses;
         if(timePasses > 0) break;
     }
