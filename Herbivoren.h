@@ -5,7 +5,6 @@
 #ifndef DINOS_HERBIVOREN_H
 #define DINOS_HERBIVOREN_H
 #include <utility>
-
 #include "Dinosaurier.h"
 
 class Herbivoren : public Dinosaurier  {
@@ -22,9 +21,11 @@ public:
 
     //Dinosaur Functions
     bool breed() override;
+    bool die() override;
+    void eaten() const;
 
 private:
-    const std::string art = "Herbivoren";
+    const std::string art = "HERBIVOR";
     int calcHideChance() const;
     bool isHidden() const;
 };

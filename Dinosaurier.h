@@ -17,7 +17,7 @@ public:
     virtual int getMaxWeight() { return maxWeight; }
     const std::string &getRace() const { return race; }
     virtual void growingUp();
-    virtual bool die();
+    virtual bool die() = 0;
     virtual bool breed() = 0;
 
 
@@ -28,8 +28,6 @@ protected:
 
     int calcMaxWeight() const;
     int calcBreedChance() const;
-
-private:
     int calcGrowthRate() const;
 };
 

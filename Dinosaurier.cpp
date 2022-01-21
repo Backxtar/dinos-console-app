@@ -15,10 +15,6 @@ void Dinosaurier::growingUp() {
     weight = newWeight;
 }
 
-bool Dinosaurier::die() {
-    return (rand() % 100 + 1) <= (calcGrowthRate() + 1);
-}
-
 int Dinosaurier::calcMaxWeight() const {
     if (race == "T_REX") return 8000;
     else if (race == "RAPTOR") return 500;

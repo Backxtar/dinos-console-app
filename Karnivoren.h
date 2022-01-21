@@ -25,10 +25,11 @@ public:
 
     //Dinosaurier Functions
     bool breed() override;
+    bool die() override;
 
 private:
     int stomachLevel = 2;
-    const std::string art = "Karnivoren";
+    const std::string art = "KARNIVOR";
 };
 
 

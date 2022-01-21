@@ -21,3 +21,10 @@ bool Karnivoren::breed() {
     return breed;
 }
 
+bool Karnivoren::die() {
+    bool died;
+    died = (rand() % 100 + 1) <= (calcGrowthRate() + 1);
+    if (died) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " ist an Altersschwäche gestorben!" << std::endl;
+    return died;
+}
+

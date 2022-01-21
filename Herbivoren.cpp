@@ -29,3 +29,14 @@ bool Herbivoren::breed() {
 bool Herbivoren::isHidden() const {
     return (rand() % 100 + 1) <= (calcHideChance() + 1);
 }
+
+bool Herbivoren::die() {
+    bool died;
+    died = (rand() % 100 + 1) <= (calcGrowthRate() + 1);
+    if (died) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " ist an Altersschwäche gestorben!" << std::endl;
+    return died;
+}
+
+void Herbivoren::eaten() const {
+    std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " wurde von einem KARNIVOR gefressen!" << std::endl;
+}

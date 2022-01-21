@@ -1,16 +1,4 @@
-#include <iostream>
-#include "Dinosaurier.h"
-#include "Herbivoren.h"
-#include "Karnivoren.h"
-#include "vector"
-#include "Utils.h"
-
-/* Global vectors */
-std::vector<Herbivoren*> herVec;
-std::vector<Karnivoren*> karVec;
-
-/* Register functions */
-void passingTime();
+#include "main.h"
 
 /* Start program */
 int main()
@@ -19,9 +7,13 @@ int main()
 
     while (true)
     {
-        std::cout << "Bitte geben sie die Anzahl an Monaten an, die simuliert werden sollen: ";
+        std::cout << "Bitte geben sie die Anzahl an Monaten an, die simuliert werden sollen: " << std::endl;
         std::cin >> timePasses;
-        if(timePasses > 0) break;
+        if(timePasses > 0)
+        {
+            std::cout << "==========START==========" << std::endl;
+            break;
+        }
     }
     Utils::initPark(karVec, herVec);
 
@@ -34,8 +26,8 @@ void passingTime()
     Utils::growUp(karVec, herVec); //Growing Steps + Die at an old age
     Utils::hunting(karVec, herVec); //Simulating the hunts + Stomach-Level reduce
     Utils::breed(karVec, herVec); //Breed
-    std::cout   << "========================" << std::endl
+    std::cout   << "=========================" << std::endl
                 << "HERBIVOREN: " << herVec.size() << std::endl
                 << "KARNIVOREN: " << karVec.size() << std::endl
-                << "========================" << std::endl;
+                << "=========================" << std::endl;
 }
