@@ -19,6 +19,11 @@ public:
     static void growUp(std::vector<Karnivoren*> &karVec, std::vector<Herbivoren*> &herVec);
     static void hunting(std::vector<Karnivoren*> &karVec, std::vector<Herbivoren*> &herVec);
     static void breed(std::vector<Karnivoren*> &karVec, std::vector<Herbivoren*> &herVec);
+
+    static bool isValid(const std::string &input);
+
+private:
+    static bool isDigit(const std::string &input);
 };
 
 

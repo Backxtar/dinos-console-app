@@ -3,13 +3,14 @@
 /* Start program */
 int main()
 {
-    int timePasses;
+    std::string input;
 
     while (true)
     {
         std::cout << "Bitte geben sie die Anzahl an Monaten an, die simuliert werden sollen: " << std::endl;
-        std::cin >> timePasses;
-        if(timePasses > 0)
+        std::cin >> input;
+
+        if(Utils::isValid(input))
         {
             std::cout << "===============================START===============================" << std::endl;
             break;
@@ -17,7 +18,7 @@ int main()
     }
     Utils::initPark(karVec, herVec);
 
-    for (int i = 0; i < timePasses; i++)
+    for (int i = 0; i < std::stoi(input); i++)
         passingTime();
 }
 

@@ -86,3 +86,18 @@ void Utils::breed(std::vector<Karnivoren *> &karVec, std::vector<Herbivoren *> &
         }
     }
 }
+
+bool Utils::isDigit(const std::string &input)
+{
+    for (const char &c : input)
+        if(isdigit(c) == false)
+            return false;
+    return true;
+}
+
+bool Utils::isValid(const std::string &input)
+{
+    bool isValid = (isDigit(input) && std::stoi(input) > 0);
+    if (!isValid) std::cout << "Es sind nur Werte > 0 erlaubt!" << std::endl;
+    return isValid;
+}
