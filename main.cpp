@@ -11,7 +11,7 @@ int main()
         std::cin >> timePasses;
         if(timePasses > 0)
         {
-            std::cout << "==========START==========" << std::endl;
+            std::cout << "===============================START===============================" << std::endl;
             break;
         }
     }
@@ -23,11 +23,11 @@ int main()
 
 void passingTime()
 {
-    Utils::growUp(karVec, herVec); //Growing Steps + Die at an old age
-    Utils::hunting(karVec, herVec); //Simulating the hunts + Stomach-Level reduce
-    Utils::breed(karVec, herVec); //Breed
-    std::cout   << "=========================" << std::endl
+    Utils::growUp(karVec, herVec);      // Grow up dinos | dino dies when to old
+    Utils::hunting(karVec, herVec);     // Hunting simulation
+    Utils::breed(karVec, herVec);       // Breed simulation
+    std::cout   << "===============================COUNT===============================" << std::endl
                 << "HERBIVOREN: " << herVec.size() << std::endl
                 << "KARNIVOREN: " << karVec.size() << std::endl
-                << "=========================" << std::endl;
+                << "================================NEW================================" << std::endl;
 }

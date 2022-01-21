@@ -1,26 +1,25 @@
 //
-// Created by joerg on 17.01.2022.
+// Created by andi on 17.01.2022.
 //
 
 #include "Herbivoren.h"
 
 bool Herbivoren::hide() const
 {
-    bool hidden;
-    if (race == "BRACHIOSAURUS" || race == "PARASAUROLOPHUS") hidden = isHidden();
-    else hidden = false;
-
+    bool hidden = (race == "BRACHIOSAURUS" || race == "PARASAUROLOPHUS") && isHidden();
     if (hidden) std::cout << "(" << getArt() << ") -> " << getRace() << " hat sich erfolgreich versteck!" << std::endl;
     return hidden;
 }
 
 int Herbivoren::calcHideChance() const {
-    if (race == "BRACHIOSAURUS") return 50;
-    else if (race == "PARASAUROLOPHUS") return 75;
-    else return 0;
+    int hideChance;
+    if (race == "BRACHIOSAURUS") hideChance = 50;
+    else if (race == "PARASAUROLOPHUS") hideChance = 75;
+    else hideChance = 0;
+    return hideChance;
 }
 
-bool Herbivoren::breed() {
+bool Herbivoren::breed() const {
     bool breed = rand() % 100 + 1 <= (calcBreedChance() + 1);
     if (breed) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " wurde geboren!" << std::endl;
     return breed;
@@ -30,10 +29,10 @@ bool Herbivoren::isHidden() const {
     return (rand() % 100 + 1) <= (calcHideChance() + 1);
 }
 
-bool Herbivoren::die() {
+bool Herbivoren::die() const {
     bool died;
     died = (rand() % 100 + 1) <= (calcGrowthRate() + 1);
-    if (died) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " ist an Altersschwäche gestorben!" << std::endl;
+    if (died) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " ist an Altersschwaeche gestorben!" << std::endl;
     return died;
 }
 

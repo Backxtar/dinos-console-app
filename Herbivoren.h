@@ -1,5 +1,5 @@
 //
-// Created by joerg on 17.01.2022.
+// Created by andi on 17.01.2022.
 //
 
 #ifndef DINOS_HERBIVOREN_H
@@ -10,22 +10,27 @@
 class Herbivoren : public Dinosaurier  {
 
 public:
-    Herbivoren(int weight_, std::string race_) : Dinosaurier(weight_, race_) {
+    /* Constructor */
+    Herbivoren(const int &weight_, const std::string &race_) : Dinosaurier(weight_, race_) {
         weight = weight_;
-        race = std::move(race_);
+        race = race_;
         maxWeight = calcMaxWeight();
     }
 
-    const std::string &getArt() const { return art; }
+    /* Public functions */
     bool hide() const;
-
-    //Dinosaur Functions
-    bool breed() override;
-    bool die() override;
+    bool breed() const override;
+    bool die() const override;
     void eaten() const;
 
+    /* Getter & Setter */
+    const std::string &getArt() const { return art; }
+
 private:
+    /* Private variables */
     const std::string art = "HERBIVOR";
+
+    /* Private functions */
     int calcHideChance() const;
     bool isHidden() const;
 };

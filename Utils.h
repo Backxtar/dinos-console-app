@@ -1,5 +1,5 @@
 //
-// Created by joerg on 21.01.2022.
+// Created by andi on 21.01.2022.
 //
 
 #ifndef DINOS_UTILS_H
@@ -13,6 +13,7 @@
 class Utils {
 
 public:
+    /* Public static functions */
     static void initPark(std::vector<Karnivoren*> &karVec, std::vector<Herbivoren*> &herVec);
 
     static void growUp(std::vector<Karnivoren*> &karVec, std::vector<Herbivoren*> &herVec);

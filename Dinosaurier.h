@@ -1,5 +1,5 @@
 //
-// Created by joerg on 17.01.2022.
+// Created by andi on 17.01.2022.
 //
 
 #ifndef DINOS_DINOSAURIER_H
@@ -11,21 +11,26 @@
 class Dinosaurier {
 
 public:
+    /* Constructor */
     Dinosaurier(const int &weight_, const std::string& race_);
 
-    virtual int getWeight() { return weight; };
-    virtual int getMaxWeight() { return maxWeight; }
-    const std::string &getRace() const { return race; }
+    /* Public functions */
     virtual void growingUp();
-    virtual bool die() = 0;
-    virtual bool breed() = 0;
+    virtual bool die() const = 0;
+    virtual bool breed() const = 0;
 
+    /* Getter & Setter */
+    virtual int getWeight() const { return weight; };
+    virtual int getMaxWeight() const { return maxWeight; }
+    const std::string &getRace() const { return race; }
 
 protected:
-    int weight{};
-    int maxWeight{};
+    /* Protected variables */
+    int weight {};      // Empty initialize -> Set with sub-constructor
+    int maxWeight {};   // Empty initialize -> Set with sub-constructor
     std::string race;
 
+    /* Protected functions */
     int calcMaxWeight() const;
     int calcBreedChance() const;
     int calcGrowthRate() const;

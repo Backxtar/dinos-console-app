@@ -1,5 +1,5 @@
 //
-// Created by joerg on 17.01.2022.
+// Created by andi on 17.01.2022.
 //
 
 #ifndef DINOS_KARNIVOREN_H
@@ -9,25 +9,26 @@
 class Karnivoren : public Dinosaurier {
 
 public:
-    Karnivoren(int weight_, std::string race_) : Dinosaurier(weight_, race_) {
+    /* Constructor */
+    Karnivoren(const int &weight_, const std::string &race_) : Dinosaurier(weight_, race_) {
         weight = weight_;
-        race = std::move(race_);
+        race = race_;
         maxWeight = calcMaxWeight();
     }
-    
-    const std::string &getArt() const { return art; }
-    bool hunt(int karWeight, int herWeight) const;
 
-    //Getter/Setter
+    /* Public functions */
+    bool hunt(int karWeight, int herWeight) const;
+    bool breed() const override;
+    bool die() const override;
+
+    /* Getter & Setter */
+    const std::string &getArt() const { return art; }
     int getStomachLevel() const { return stomachLevel; }
     void setStomachLevel(int stomachLevel1) { stomachLevel = stomachLevel1; }
     void reduceStomachLevel(int reduce) { stomachLevel = stomachLevel - reduce; }
 
-    //Dinosaurier Functions
-    bool breed() override;
-    bool die() override;
-
 private:
+    /* Private variables */
     int stomachLevel = 2;
     const std::string art = "KARNIVOR";
 };

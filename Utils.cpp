@@ -29,18 +29,18 @@ void Utils::initPark(std::vector<Karnivoren *> &karVec, std::vector<Herbivoren *
 
 void Utils::growUp(std::vector<Karnivoren *> &karVec, std::vector<Herbivoren *> &herVec)
 {
-    for (int i = 0; i < herVec.size(); i++)
+    for (int her = 0; her < herVec.size(); her++)
     {
-        herVec.at(i)->growingUp();
-        if (herVec.at(i)->getWeight() == herVec.at(i)->getMaxWeight() && herVec.at(i)->die())
-            herVec.erase(herVec.begin() + i); //löschen
+        herVec.at(her)->growingUp();
+        if (herVec.at(her)->getWeight() == herVec.at(her)->getMaxWeight() && herVec.at(her)->die())
+            herVec.erase(herVec.begin() + her); // Delete HERBIVOR
     }
 
-    for (int i = 0; i < karVec.size(); i++)
+    for (int kar = 0; kar < karVec.size(); kar++)
     {
-        karVec.at(i)->growingUp();
-        if (karVec.at(i)->getWeight() == karVec.at(i)->getMaxWeight() && karVec.at(i)->die())
-            karVec.erase(karVec.begin() + i); //löschen
+        karVec.at(kar)->growingUp();
+        if (karVec.at(kar)->getWeight() == karVec.at(kar)->getMaxWeight() && karVec.at(kar)->die())
+            karVec.erase(karVec.begin() + kar); // DELETE KARNIVOR
     }
 }
 
@@ -53,13 +53,13 @@ void Utils::hunting(std::vector<Karnivoren *> &karVec, std::vector<Herbivoren *>
             if (karVec.at(kar)->hunt(karVec.at(kar)->getWeight(), herVec.at(her)->getWeight())
             && karVec.at(kar)->getStomachLevel() != 2 &&!herVec.at(her)->hide())
             {
-                herVec.at(her)->eaten(); //Wurde gefressen!
-                karVec.at(kar)->setStomachLevel(2); //Auffüllen der hunger variable
-                herVec.erase(herVec.begin() + her); //Löschen des Opfers
+                herVec.at(her)->eaten();                                                 // HERBIVOR was eaten
+                karVec.at(kar)->setStomachLevel(2);                          // KARNIVOR has eaten
+                herVec.erase(herVec.begin() + her);                                      // Delete HERBIVOR
             }
-            else karVec.at(kar)->reduceStomachLevel(1); //Wenn kein Fressen gefunden, reduzier stomach
+            else karVec.at(kar)->reduceStomachLevel(1);                           // Nothing to eat for KARNIVOR
         }
-        if (karVec.at(kar)->getStomachLevel() <= 0) karVec.erase(karVec.begin() + kar); //Wenn stomach <= 0 -> tot
+        if (karVec.at(kar)->getStomachLevel() <= 0) karVec.erase(karVec.begin() + kar); // KARNIVOR dies if stomach gets zero
     }
 }
 
@@ -67,22 +67,20 @@ void Utils::breed(std::vector<Karnivoren *> &karVec, std::vector<Herbivoren *> &
 {
     for (auto &vecK: karVec)
     {
-        if (vecK->breed())
+        if (vecK->breed()) // Create new dino
         {
-            //neuen dino erstellen
             int weight = vecK->getWeight() / 100 * 20;
-            std::string race = vecK->getRace();
+            const std::string &race = vecK->getRace();
             auto *kar = new Karnivoren(weight, race);
             karVec.push_back(kar);
         }
     }
     for (auto &vecH: herVec)
     {
-        if (vecH->breed())
+        if (vecH->breed()) // Create new dino
         {
-            //neuen dino erstellen
             int weight = vecH->getWeight() / 100 * 20;
-            std::string race = vecH->getRace();
+            const std::string &race = vecH->getRace();
             auto *her = new Herbivoren(weight, race);
             herVec.push_back(her);
         }

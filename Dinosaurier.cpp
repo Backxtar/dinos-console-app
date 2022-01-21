@@ -1,12 +1,12 @@
 //
-// Created by joerg on 17.01.2022.
+// Created by andi on 17.01.2022.
 //
 
 #include "Dinosaurier.h"
 
 
-Dinosaurier::Dinosaurier(const int &weight_, const std::string& race_) {
-
+Dinosaurier::Dinosaurier(const int &weight_, const std::string &race_) {
+    // Empty constructor -> Send variables to sub-constructors
 }
 
 void Dinosaurier::growingUp() {

@@ -1,5 +1,5 @@
 //
-// Created by joerg on 17.01.2022.
+// Created by andi on 17.01.2022.
 //
 
 #include "Karnivoren.h"
@@ -15,16 +15,16 @@ bool Karnivoren::hunt(int karWeight, int herWeight) const
     return hunted;
 }
 
-bool Karnivoren::breed() {
+bool Karnivoren::breed() const {
     bool breed = rand() % 100 + 1 <= (calcBreedChance() + 1);
     if (breed) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " wurde geboren!" << std::endl;
     return breed;
 }
 
-bool Karnivoren::die() {
+bool Karnivoren::die() const {
     bool died;
     died = (rand() % 100 + 1) <= (calcGrowthRate() + 1);
-    if (died) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " ist an Altersschwäche gestorben!" << std::endl;
+    if (died) std::cout << "Ein " << "(" << getArt() << ") -> " << getRace() << " ist an Altersschwaeche gestorben!" << std::endl;
     return died;
 }
 
