@@ -18,9 +18,9 @@ public:
     }
 
     /* Public functions */
-    bool hide() const;
     bool breed() const override;
     bool die() const override;
+    bool hide() const;
     void eaten() const;
 
     /* Getter & Setter */

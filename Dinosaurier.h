@@ -20,8 +20,8 @@ public:
     virtual bool breed() const = 0;
 
     /* Getter & Setter */
-    virtual int getWeight() const { return weight; };
-    virtual int getMaxWeight() const { return maxWeight; }
+    int getWeight() const { return weight; };
+    int getMaxWeight() const { return maxWeight; }
     const std::string &getRace() const { return race; }
 
 protected:

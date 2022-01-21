@@ -17,9 +17,9 @@ public:
     }
 
     /* Public functions */
-    bool hunt(int karWeight, int herWeight) const;
     bool breed() const override;
     bool die() const override;
+    bool hunt(int karWeight, int herWeight) const;
 
     /* Getter & Setter */
     const std::string &getArt() const { return art; }
